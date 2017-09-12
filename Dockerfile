@@ -1,6 +1,6 @@
 FROM fx:16.04
 
-MAINTAINER Jacob chenjr0719@gmail.com
+LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
