@@ -4,20 +4,27 @@ LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y \
-    git \
-    vim \
-    python3 \
-    python3-pip \
-    nginx \
-    supervisor \
-    libpq-dev \
-    postgresql \
-    postgresql-contrib \
-    pwgen && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install uwsgi django
 RUN sed -r -i -e "s#http://(archive|security)\.ubuntu\.com/ubuntu/?#$(netselect -v -s1 -t20 `wget -q -O- https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 "statusUP|statusSIX" | grep -o -P "http://[^\"]*"`|grep -P -o 'http://.+$')#g" /etc/apt/sources.list
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+            build-essential \
+            ca-certificates \
+            curl \
+            git \
+            libpq-dev \
+            mg \
+            nginx \
+            postgresql \
+            postgresql-contrib \
+            pwgen \
+            python3-dev \
+            python3-venv \
+            sqlite3 \
+            supervisor \
+            vim && \
+    rm -rf /var/lib/apt/lists/*
 
 # nginx config
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
