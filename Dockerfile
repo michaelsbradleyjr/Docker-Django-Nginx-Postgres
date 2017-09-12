@@ -53,5 +53,7 @@ COPY models.py /home/django/
 COPY init.sql /home/django/
 COPY start.sh /home/django/
 
+RUN adduser --disabled-password --gecos "" --no-create-home django
+
 EXPOSE 80
 CMD ["/bin/bash", "/home/django/start.sh"]
