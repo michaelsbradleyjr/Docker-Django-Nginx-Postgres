@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     pwgen && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install uwsgi django
+RUN sed -r -i -e "s#http://(archive|security)\.ubuntu\.com/ubuntu/?#$(netselect -v -s1 -t20 `wget -q -O- https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 "statusUP|statusSIX" | grep -o -P "http://[^\"]*"`|grep -P -o 'http://.+$')#g" /etc/apt/sources.list
 
 # nginx config
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
