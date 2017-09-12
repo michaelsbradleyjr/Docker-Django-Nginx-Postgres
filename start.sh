@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SETTING_PATH=`find /home/django/ -name settings.py`
+source /home/django/envs/app/bin/activate
 
 # Check is there already exist any django project
 if [ -z "$SETTING_PATH" ] ; then
