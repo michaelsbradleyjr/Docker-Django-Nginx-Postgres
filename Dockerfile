@@ -1,4 +1,4 @@
-From ubuntu:16.04
+FROM fx:16.04
 
 MAINTAINER Jacob chenjr0719@gmail.com
 
