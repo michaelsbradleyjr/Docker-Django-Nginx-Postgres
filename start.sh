@@ -43,9 +43,6 @@ if [ ! -f /home/django/password.txt ] ; then
     sed -i "s|password|$POSTGRES_DJANGO_PASSWORD|g" /home/django/init.sql
     su - postgres -c 'psql -f /home/django/init.sql'
 
-    # install Postgres adapter for Python
-    pip3 install psycopg2
-
     # Create model_example app
     mkdir -p /home/django/app/website/model_example/
     django-admin startapp model_example /home/django/app/website/model_example/
