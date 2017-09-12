@@ -26,6 +26,14 @@ RUN apt-get update && \
             vim && \
     rm -rf /var/lib/apt/lists/*
 
+# setup the virtual environment for django
+RUN python3 -m venv /home/django/envs/app
+COPY requirements.txt /home/django/app/
+RUN bash -c "source /home/django/envs/app/bin/activate; \
+             pip install -U \$(pip list | awk '{print \$1}' | paste -sd ' '); \
+             pip3 install -r /home/django/app/requirements.txt"
+RUN rm /home/django/app/requirements.txt
+
 # nginx config
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx-site.conf /etc/nginx/sites-available/default
