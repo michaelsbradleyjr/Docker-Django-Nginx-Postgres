@@ -1,0 +1,7 @@
+wheel
+uwsgi
+
+django==1.10.7
+djangorestframework
+
+psycopg2
