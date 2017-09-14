@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x #echo on
 
 source /home/python3/envs/app/bin/activate
 
