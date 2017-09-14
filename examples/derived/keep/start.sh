@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-source /home/django/envs/app/bin/activate
+source /home/python3/envs/app/bin/activate
 
 SETTING_PATH=`find /home/django/app/ -name settings.py`
 
