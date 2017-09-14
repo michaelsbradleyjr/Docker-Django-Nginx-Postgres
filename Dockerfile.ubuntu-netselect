@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
+
+ENV DEBIAN_FRONTEND noninteractive
+
+COPY netselect-install.sh /root/
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+            wget && \
+    bash /root/netselect-install.sh && \
+    rm /root/netselect-install.sh && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY netselect.sh /root/

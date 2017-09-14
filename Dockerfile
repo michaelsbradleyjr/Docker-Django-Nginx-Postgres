@@ -4,9 +4,9 @@ LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed -r -i -e "s#http://(archive|security)\.ubuntu\.com/ubuntu/?#$(netselect -v -s1 -t20 `wget -q -O- https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 "statusUP|statusSIX" | grep -o -P "http://[^\"]*"`|grep -P -o 'http://.+$')#g" /etc/apt/sources.list
-
-RUN apt-get update && \
+RUN bash /root/netselect.sh && \
+    rm /root/netselect.sh && \
+    apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
             build-essential \
