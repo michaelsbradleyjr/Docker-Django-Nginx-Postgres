@@ -1,4 +1,4 @@
-FROM fx:16.04
+FROM ubuntu-netselect:16.04
 
 LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
