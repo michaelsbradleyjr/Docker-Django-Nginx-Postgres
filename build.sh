@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type dockerz &> /dev/null; then
+if ! type docker &> /dev/null; then
     echo 'the command `docker` must be on a path in $PATH or aliased'
     exit 127
 fi
@@ -27,17 +27,20 @@ script_path () {
 script_dir=$(dirname -- "$(script_path)")
 cd $script_dir
 
+echo -e "Building ubuntu-netselect:16.04\n"
 docker build \
        -t ubuntu-netselect:16.04 \
        -f ./ubuntu-netselect/Dockerfile \
        ./ubuntu-netselect
 
+echo -e "Building ubuntu-python3-uwsgi-nginx:16.04\n"
 docker build \
        -t ubuntu-python3-uwsgi-nginx:16.04 \
        -f ./ubuntu-python3-uwsgi-nginx/Dockerfile \
        ./ubuntu-python3-uwsgi-nginx
 
+echo -e "Building ubuntu-django-postgresql:16.04\n"
 docker build \
-       -t webapp:django-example \
-       -f ./examples/ubuntu-django-postgresql/Dockerfile \
-       ./examples/ubuntu-django-postgresql
+       -t ubuntu-django-postgresql:16.04 \
+       -f ./ubuntu-django-postgresql/Dockerfile \
+       ./ubuntu-django-postgresql
