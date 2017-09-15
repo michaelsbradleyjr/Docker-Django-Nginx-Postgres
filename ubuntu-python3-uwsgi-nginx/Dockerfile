@@ -14,5 +14,5 @@ RUN bash build.sh
 
 RUN rm apt.sh build.sh
 
-EXPOSE 80
-CMD ["/bin/bash", "/home/python3/start0.sh"]
+EXPOSE 80 8000
+CMD ["/usr/local/bin/start"]
