@@ -13,5 +13,3 @@ COPY build.sh /
 RUN bash build.sh
 
 RUN rm apt.sh build.sh
-
-EXPOSE 80 8000
