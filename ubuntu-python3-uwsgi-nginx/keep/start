@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x #echo on
+
+exec /home/python3/start.sh
