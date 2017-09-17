@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -x #echo on
 
+# environment
+echo will cite | parallel --bibtex >/dev/null
+sed -i "4i export TERM=xterm-color" /root/.bashrc
+cat /build/ubuntu-python3-uwsgi-nginx/dot.bashrc >> /root/.bashrc
+ln -f -s /build/ubuntu-python3-uwsgi-nginx/dot.dircolors /root/.dircolors
+git clone -b custom --depth=1 \
+    https://github.com/michaelsbradleyjr/bash-it.git /root/.bash_it
+mkdir -p /root/.bash_it/plugins/enabled
+ln -s /root/.bash_it/plugins/available/base.plugin.bash \
+      /root/.bash_it/plugins/enabled/
+
+# emacs
+mkdir -p /root/
+ln -f -s /build/ubuntu-python3-uwsgi-nginx/dot.emacs.d /root/.emacs.d
+
+# tmux
+ln -f -s /build/ubuntu-python3-uwsgi-nginx/dot.tmux.conf /root/.tmux.conf
+
 # app structure
 find /build/ubuntu-python3-uwsgi-nginx/ -type f | grep -i \.sh$ | \
     parallel chmod +x
