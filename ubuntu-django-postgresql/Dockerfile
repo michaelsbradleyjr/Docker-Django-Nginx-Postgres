@@ -2,6 +2,7 @@ FROM ubuntu-python3-uwsgi-nginx:16.04
 
 LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
+ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY apt.sh /
