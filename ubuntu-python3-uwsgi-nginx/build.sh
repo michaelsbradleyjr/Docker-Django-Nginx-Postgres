@@ -2,6 +2,9 @@
 set -x #echo on
 
 # app structure
+find /build/ubuntu-python3-uwsgi-nginx/ -type f | grep -i \.sh$ | \
+    parallel chmod +x
+chmod +x /build/ubuntu-python3-uwsgi-nginx/{dev,start}
 mkdir -p /home/python3/{envs,app,conf.prod,conf.dev}
 ln -f -s /build/ubuntu-python3-uwsgi-nginx/conf.prod/* -t /home/python3/conf.prod
 ln -f -s /build/ubuntu-python3-uwsgi-nginx/conf.dev/* -t /home/python3/conf.dev

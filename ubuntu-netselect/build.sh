@@ -9,3 +9,5 @@ wget -O netselect.deb http://http.us.debian.org/debian/pool/main/n/netselect/net
 
 dpkg -i netselect.deb
 rm netselect.deb
+
+chmod +x /build/ubuntu-netselect/netselect.sh
