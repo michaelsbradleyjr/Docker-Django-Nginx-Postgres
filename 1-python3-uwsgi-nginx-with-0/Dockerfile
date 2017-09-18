@@ -2,8 +2,8 @@ FROM 0-ubuntu-netselect
 
 LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
-ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
+ENV LANG en_US.UTF-8
 
 COPY apt.sh /
 RUN bash apt.sh
