@@ -15,7 +15,7 @@ sed -i "s|appname|$app_name|g" /home/python3/uwsgi.ini
 mkdir -p /home/python3/app/$app_name
 
 if [ -z "$wsgipy_path" ]; then
-    cp /build/ubuntu-python3-uwsgi-nginx/wsgi.py /home/python3/app/$app_name/
+    cp /build/1-python3-uwsgi-nginx-with-0/wsgi.py /home/python3/app/$app_name/
 fi
 wsgipy_path="$(find /home/python3/app/ -name wsgi.py)"
 

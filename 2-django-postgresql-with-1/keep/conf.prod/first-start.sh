@@ -41,7 +41,7 @@ if [ ! -f /home/python3/passwords.txt ] ; then
 
     # init pgsql
     tempdir=$(mktemp -d)
-    cp /build/ubuntu-django-postgresql/init.sql $tempdir/
+    cp /build/2-django-postgresql-with-1/init.sql $tempdir/
     sed -i "s|password|$pgsql_python3_password|g" $tempdir/init.sql
     chmod -R 775 $tempdir
     su - postgres -c "psql -f $tempdir/init.sql"

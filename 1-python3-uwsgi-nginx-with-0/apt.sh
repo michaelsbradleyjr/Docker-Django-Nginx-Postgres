@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x #echo on
 
-/build/ubuntu-netselect/netselect.sh
+/build/0-ubuntu-netselect/netselect.sh
 
 apt-get update
 apt-get upgrade -y

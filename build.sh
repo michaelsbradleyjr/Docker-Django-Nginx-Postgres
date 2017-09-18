@@ -27,20 +27,20 @@ script_path () {
 script_dir=$(dirname -- "$(script_path)")
 cd $script_dir
 
-echo -e "Building ubuntu-netselect:16.04\n"
+echo -e "Building 0-ubuntu-netselect\n"
 docker build \
-       -t ubuntu-netselect:16.04 \
-       -f ./ubuntu-netselect/Dockerfile \
-       ./ubuntu-netselect
+       -t 0-ubuntu-netselect \
+       -f ./0-ubuntu-netselect/Dockerfile \
+       ./0-ubuntu-netselect
 
-echo -e "Building ubuntu-python3-uwsgi-nginx:16.04\n"
+echo -e "Building 1-python3-uwsgi-nginx-with-0\n"
 docker build \
-       -t ubuntu-python3-uwsgi-nginx:16.04 \
-       -f ./ubuntu-python3-uwsgi-nginx/Dockerfile \
-       ./ubuntu-python3-uwsgi-nginx
+       -t 1-python3-uwsgi-nginx-with-0 \
+       -f ./1-python3-uwsgi-nginx-with-0/Dockerfile \
+       ./1-python3-uwsgi-nginx-with-0
 
-echo -e "Building ubuntu-django-postgresql:16.04\n"
+echo -e "Building 2-django-postgresql-with-1\n"
 docker build \
-       -t ubuntu-django-postgresql:16.04 \
-       -f ./ubuntu-django-postgresql/Dockerfile \
-       ./ubuntu-django-postgresql
+       -t 2-django-postgresql-with-1 \
+       -f ./2-django-postgresql-with-1/Dockerfile \
+       ./2-django-postgresql-with-1
