@@ -13,6 +13,8 @@ apt-get install -y \
         ed \
         emacs-nox \
         git \
+        lsof \
+        net-tools \
         nginx \
         parallel \
         python3-dev \
