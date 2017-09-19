@@ -23,7 +23,6 @@ script_path () {
 script_dir=$(dirname -- "$(script_path)")
 cd $script_dir
 
-
 rm -rf \
    db.sqlite3 \
    django-admin-password \
