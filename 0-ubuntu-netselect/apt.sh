@@ -2,8 +2,9 @@
 set -x #echo on
 
 apt-get update
-apt-get upgrade -y
+
 apt-get install -y \
+        apt-utils \
         locales
 
 cat /build/0-ubuntu-netselect/default_locale > /etc/default/locale
@@ -12,6 +13,7 @@ dpkg-reconfigure locales
 
 export LANG=en_US.UTF-8
 
+apt-get upgrade -y
 apt-get install -y \
         wget
 

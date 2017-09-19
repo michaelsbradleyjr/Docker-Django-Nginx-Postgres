@@ -6,7 +6,6 @@ set -x #echo on
 apt-get update
 apt-get upgrade -y
 apt-get install -y \
-        apt-utils \
         bash-completion \
         build-essential \
         ca-certificates \
