@@ -9,10 +9,7 @@ deactivate
 
 settingspy_path="$(find /home/python3/app/ -name settings.py)"
 if [ -z "$settingspy_path" ]; then
-    if [ -f /home/python3/app/app-name ]; then
-        app_name="$(cat /home/python3/app/app-name)"
-    fi
-    app_name="$(cat /home/python3/conf/app-name)"
+    app_name="$(cat /home/python3/conf-dev/app-name)"
 else
     app_name=$(basename $(dirname "$settingspy_path"))
 fi
