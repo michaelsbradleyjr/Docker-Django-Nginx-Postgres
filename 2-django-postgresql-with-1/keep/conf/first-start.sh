@@ -44,7 +44,7 @@ if [ ! -f /home/python3/passwords.txt ] ; then
 
     # modify django database setting
     sed -i "s|django.db.backends.sqlite3|django.db.backends.postgresql_psycopg2|g" $settingspy_path
-    sed -i "s|os.path.join(BASE_DIR, 'db.sqlite3')|'django',\n        'HOST': '127.0.0.1',\n        'USER': 'python3',\n        'PASSWORD': '$pgsql_python3_password'|g" $settingspy_path
+    sed -i "s|os.path.join(BASE_DIR, 'db.sqlite3')|'django',\n        'HOST': '127.0.0.1',\n        'USER': 'python3',\n        'PASSWORD': open('/home/python3/passwords.txt', 'r').read().split(' = ')[1].rstrip()|g" $settingspy_path
 
     # modify django static,media files setting
     mkdir -p /home/python3/app/{media,static}
