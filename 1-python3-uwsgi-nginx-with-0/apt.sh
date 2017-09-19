@@ -6,6 +6,7 @@ set -x #echo on
 apt-get update
 apt-get upgrade -y
 apt-get install -y \
+        apt-utils \
         bash-completion \
         build-essential \
         ca-certificates \
@@ -13,7 +14,6 @@ apt-get install -y \
         ed \
         emacs-nox \
         git \
-        mg \
         nginx \
         parallel \
         python3-dev \

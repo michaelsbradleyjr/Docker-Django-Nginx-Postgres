@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
 set -x #echo on
 
-exec /home/python3/dev.sh
+if [[ -d /home/python3/app/conf-dev ]]; then
+    if [[ ! -z "$(ls /home/python3/app/conf-dev)" ]]; then
+        ln -f -s /home/python3/app/conf-dev/* -t /home/python3/conf-dev
+    fi
+    
+fi
+if [[ -d /home/python3/app/supervisor-dev ]]; then
+    if [[ ! -z "$(ls /home/python3/app/supervisor-dev)" ]]; then
+        ln -f -s /home/python3/app/supervisor-dev/* -t /home/python3/conf-dev/supervisor
+    fi
+fi
+
+exec /home/python3/start0-dev.sh
