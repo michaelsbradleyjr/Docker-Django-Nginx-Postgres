@@ -83,5 +83,5 @@ touch $hp3/touch-reload
 # virtual environment
 python3 -m venv $hp3/envs/app
 source $hp3/envs/app/bin/activate
-pip3 install -U $(pip3 list | awk '{print $1}' | paste -sd ' ')
+pip install -U $(pip list | awk '{print $1}' | paste -sd ' ')
 deactivate
