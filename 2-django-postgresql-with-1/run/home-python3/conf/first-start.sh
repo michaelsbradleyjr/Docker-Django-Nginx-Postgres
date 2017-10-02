@@ -56,12 +56,11 @@ if [ ! -f ~python3/passwords.ini ] ; then
     # link local_settings.py
     ln -f -s ~python3/conf/local_settings.py -t ~python3/app/$app_name/
 
-    # run migrations against pgsql and collect static files
+    # run migrations against pgsql
     source ~python3/envs/app/bin/activate
     cd ~python3/app
     python manage.py migrate
     echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@localhost', '$django_admin_password')" | python manage.py shell
-    echo yes | python manage.py collectstatic
     cd -
     deactivate
 
