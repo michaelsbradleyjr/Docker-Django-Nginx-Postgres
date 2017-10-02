@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x #echo on
 
 script_path () {
     local scr_path=""

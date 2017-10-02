@@ -1,0 +1,5 @@
+wheel
+
+configparser
+django
+psycopg2

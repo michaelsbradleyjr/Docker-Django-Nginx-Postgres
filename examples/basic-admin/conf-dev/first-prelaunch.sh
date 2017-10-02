@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x #echo on
 
 /etc/init.d/postgresql start & sleep 5s
 source /home/python3/envs/app/bin/activate

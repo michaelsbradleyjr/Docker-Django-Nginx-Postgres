@@ -4,13 +4,10 @@ LABEL maintainer="Michael Bradley <michaelsbradleyjr@gmail.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY apt.sh /
-RUN bash apt.sh
-
-COPY keep /build/0-ubuntu-netselect
+COPY build /docker-container/0-ubuntu-netselect/build
+RUN bash /docker-container/0-ubuntu-netselect/build/install.sh
 
 ENV LANG en_US.UTF-8
-COPY build.sh /
-RUN bash build.sh
 
-RUN rm apt.sh build.sh
+COPY run /docker-container/0-ubuntu-netselect/run
+RUN bash /docker-container/0-ubuntu-netselect/build/setup.sh

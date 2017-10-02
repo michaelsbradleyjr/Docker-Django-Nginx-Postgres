@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x #echo on
 
 if ! type docker &> /dev/null; then
     echo 'the command `docker` must be on a path in $PATH or aliased'

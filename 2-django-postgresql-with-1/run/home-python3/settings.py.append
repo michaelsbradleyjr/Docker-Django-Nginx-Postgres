@@ -1,0 +1,5 @@
+
+# Local Docker Server
+if os.environ.get('IS_LOCAL_DOCKER_SERVER') == 'TRUE':
+    from appname.local_settings import *
+

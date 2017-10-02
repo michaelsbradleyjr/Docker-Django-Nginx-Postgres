@@ -1,0 +1,6 @@
+wheel
+uwsgi
+
+configparser
+django
+psycopg2
