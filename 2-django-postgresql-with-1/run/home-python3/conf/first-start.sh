@@ -26,8 +26,8 @@ if [ -z "$settingspy_path" ]; then
 fi
 settingspy_path="$(find ~python3/app/ -name settings.py)"
 
+sed -i "s|appname|$app_name|g" ~python3/settings.py.append
 if [[ -z "$(grep '# Local Docker Server' $settingspy_path)" ]]; then
-    sed -i "s|appname|$app_name|g" ~python3/settings.py.append
     cat ~python3/settings.py.append >> $settingspy_path
 fi
 
