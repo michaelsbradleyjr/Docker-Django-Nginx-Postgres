@@ -3,6 +3,10 @@
 export IS_LOCAL_DOCKER_SERVER=TRUE
 export LOCAL_DOCKER_MODE=PROD
 
+echo -e "IS_LOCAL_DOCKER_SERVER=TRUE\nLOCAL_DOCKER_MODE=PROD" \
+     > /docker-container/.environ
+chmod 444 /docker-container/.environ
+
 symlink_recur () {
     local src_dir=$1
     local tgt_dir=$2

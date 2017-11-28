@@ -50,3 +50,15 @@ export GIT_EDITOR="emacs"
 if [ -f "$HOME/.bash_env" ]; then
     . $HOME/.bash_env
 fi
+
+export IS_LOCAL_DOCKER_SERVER="$(cat /docker-container/.environ | \
+                                 grep IS_LOCAL_DOCKER_SERVER | \
+                                 awk -F'=' '{print $2}')"
+
+export LOCAL_DOCKER_MODE="$(cat /docker-container/.environ | \
+                            grep LOCAL_DOCKER_MODE | \
+                            awk -F'=' '{print $2}')"
+
+source ~python3/envs/app/bin/activate
+
+cd ~python3
